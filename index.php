@@ -491,12 +491,15 @@ if (defined('PASSKEY')) {
 	// for calendars on same server, set a different cookie name based on the script path
 	session_name('advent_'.md5($_SERVER['SCRIPT_NAME']));
 
-	session_start([
-		'cookie_httponly' => true,
-		'cookie_samesite' => 'Lax',
-		'cookie_lifetime' => 24*3600, // 24 hours
-		'cookie_path' => dirname($_SERVER['SCRIPT_NAME']),
+	// Set cookie parameters before session_start for PHP 8.4 compatibility
+	session_set_cookie_params([
+		'lifetime' => 24*3600, // 24 hours
+		'path' => dirname($_SERVER['SCRIPT_NAME']),
+		'httponly' => true,
+		'samesite' => 'Lax',
 	]);
+	
+	session_start();
 
 	// want to log out
 	if (isset($_GET[URL_LOGOUT])) {
