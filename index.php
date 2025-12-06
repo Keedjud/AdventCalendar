@@ -727,7 +727,6 @@ $authentificated = defined('PASSKEY') && isset($_SESSION['welcome']);
 </head>
 
 <body>
-
 	<nav class="navbar navbar-default navbar-static-top" role="navigation">
 		<div class="container">
 			<div class="navbar-header">
@@ -750,13 +749,16 @@ $authentificated = defined('PASSKEY') && isset($_SESSION['welcome']);
 			</div>
 		</div>
 	</nav>
+	<div>
+		<h1 class="main-title">Ton calendrier de l'Avent personnel !!!</h1>
+	</div>
 	<div class="background">
 		<?php
 		echo $template;
 		?>
 	</div>
 
-	<footer>
+	<!-- <footer>
 		<hr />
 		<?php if (defined('COPYRIGHT')): ?>
 			<div class="copyright text-center"><?php echo COPYRIGHT; ?></div>
@@ -767,7 +769,7 @@ $authentificated = defined('PASSKEY') && isset($_SESSION['welcome']);
 				<a href="https://github.com/Devenet/AdventCalendar" class="tip" title="Advent Calendar is a light web application to show a picture per day before an event." rel="external" ?><?php echo ADVENT_CALENDAR; ?></a> <?php echo I18n::translation('developed-by', '<a href="https://nicolas.devenet.info" rel="external">Nicolas Devenet</a>'); ?>
 			</div>
 		</div>
-	</footer>
+	</footer> -->
 
 	<script src="<?= Routes::route() ?>assets/js/jquery.min.js"></script>
 	<script src="<?= Routes::route() ?>assets/js/bootstrap.min.js"></script>
