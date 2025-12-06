@@ -13,9 +13,8 @@ body, .tooltip {
 	margin: 0;
 	padding: 20px 0;
 	overflow: hidden;
-	background: url(../img/tree_bark.png) left top repeat fixed;
+	background: #ffffff;
 }
-.alternate-background { background: url(../img/wave_grid.png) left top repeat fixed; }
 hr, .page-header { border-color: #cdcdcd; }
 nav.navbar { margin-bottom: 0; }
 .navbar { font-weight: 400; }

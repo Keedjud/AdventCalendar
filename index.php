@@ -41,11 +41,8 @@ if (file_exists(SETTINGS_FILE)) {
 	if (isset($settings->passkey) && !empty($settings->passkey)) { define('PASSKEY', $settings->passkey); }
 
 	// does the user want another background?
-	if (isset($settings->background)) {
-		// the alternate?
-		if ($settings->background == 'alternate') { define('ALTERNATE_BACKGROUND', TRUE); }
-		// or from a custom URL?
-		else if (!empty($settings->background)) { define('BACKGROUND_URL', $settings->background); }
+	if (isset($settings->background) && !empty($settings->background)) {
+		define('BACKGROUND_URL', $settings->background);
 	}
 
 	// what language?
@@ -639,7 +636,7 @@ $authentificated = defined('PASSKEY') && isset($_SESSION['welcome']);
 		</div>
 		</div>
 		</nav>
-		<div class="background<?php if(defined('ALTERNATE_BACKGROUND')) { echo ' alternate-background'; } ?>">
+		<div class="background">
 		<?php
 			echo $template;
 		?>
