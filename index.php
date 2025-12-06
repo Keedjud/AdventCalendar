@@ -646,6 +646,7 @@ else if (isset($_GET[URL_PHOTO])) {
 // nothing asked, display homepage
 else if (empty($_GET)) {
 	$template = Advent::getDaysHtml();
+	$is_homepage = true;
 }
 // want to display a day
 else if (isset($_GET['day'])) {
@@ -727,27 +728,24 @@ $authentificated = defined('PASSKEY') && isset($_SESSION['welcome']);
 		<div class="container">
 			<div class="navbar-header">
 				<a class="navbar-brand tip" href="<?= Routes::route() ?>" title="home" data-placement="right"><i class="glyphicon glyphicon-home"></i> <?php echo TITLE; ?></a>
-			</div>
-
-			<div class="collapse navbar-collapse" id="navbar-collapse">
-				<ul class="nav navbar-nav navbar-right">
-					<?php
-					// logout
-					if ($authentificated) {
-						echo '<li><a href="' . Routes::route(URL_LOGOUT) . '" title="' . I18n::translation('logout') . '" class="tip" data-placement="bottom"><i class="glyphicon glyphicon-user"></i></a></li>';
-					}
-					// rss
-					if (!defined('PASSKEY')) {
-						echo '<li><a href="', Routes::route(URL_RSS), '" title="RSS" class="tip rss-feed" data-placement="bottom"><i class="glyphicon glyphicon-bell"></i></a></li>';
-					}
-					?>
-				</ul>
+				<?php
+				// logout button always visible
+				if ($authentificated) {
+					echo '<a href="' . Routes::route(URL_LOGOUT) . '" title="' . I18n::translation('logout') . '" class="btn btn-default navbar-btn navbar-right-mobile tip" data-placement="bottom"><i class="glyphicon glyphicon-user"></i></a>';
+				}
+				// rss
+				if (!defined('PASSKEY')) {
+					echo '<a href="', Routes::route(URL_RSS), '" title="RSS" class="btn btn-default navbar-btn navbar-right-mobile tip rss-feed" data-placement="bottom"><i class="glyphicon glyphicon-bell"></i></a>';
+				}
+				?>
 			</div>
 		</div>
 	</nav>
+	<?php if ($authentificated && isset($is_homepage) && $is_homepage): ?>
 	<div>
 		<h1 class="main-title">Ton calendrier de l'Avent personnel !!!</h1>
 	</div>
+	<?php endif; ?>
 	<div class="background">
 		<?php
 		echo $template;
