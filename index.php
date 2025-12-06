@@ -709,10 +709,6 @@ $authentificated = defined('PASSKEY') && isset($_SESSION['welcome']);
 	<meta charset="UTF-8" />
 	<title><?php echo (!empty($template_title) ? $template_title . ' &middot; ' : ''), TITLE; ?></title>
 
-	<!-- Parce qu’il y a toujours un peu d’humain derrière un site… -->
-	<meta name="author" content="Nicolas Devenet" />
-	<meta name="generator" content="AdventCalendar (v<?php echo VERSION; ?>) by Nicolas Devenet" />
-
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="shortcut icon" type="image/x-icon" href="<?= Routes::route() ?>assets/favicon.ico" />
 	<link rel="icon" type="image/png" href="<?= Routes::route() ?>assets/favicon.png" />
@@ -757,19 +753,6 @@ $authentificated = defined('PASSKEY') && isset($_SESSION['welcome']);
 		echo $template;
 		?>
 	</div>
-
-	<!-- <footer>
-		<hr />
-		<?php if (defined('COPYRIGHT')): ?>
-			<div class="copyright text-center"><?php echo COPYRIGHT; ?></div>
-		<?php endif; ?>
-		<div class="container">
-			<p class="pull-right"><a href="#" id="goHomeYouAreDrunk" class="tip" data-placement="left" title="<?php echo I18n::translation('upstairs'); ?>"><i class="glyphicon glyphicon-menu-up"></i></a></p>
-			<div class="notice">
-				<a href="https://github.com/Devenet/AdventCalendar" class="tip" title="Advent Calendar is a light web application to show a picture per day before an event." rel="external" ?><?php echo ADVENT_CALENDAR; ?></a> <?php echo I18n::translation('developed-by', '<a href="https://nicolas.devenet.info" rel="external">Nicolas Devenet</a>'); ?>
-			</div>
-		</div>
-	</footer> -->
 
 	<script src="<?= Routes::route() ?>assets/js/jquery.min.js"></script>
 	<script src="<?= Routes::route() ?>assets/js/bootstrap.min.js"></script>
